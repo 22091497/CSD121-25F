@@ -1,23 +1,36 @@
 package lab4.ui;
 
-import lab4.game.*;
+import static com.diogonunes.jcolor.Ansi.colorize;
+import static com.diogonunes.jcolor.Attribute.*;rt lab4.game.*;
 
 import java.util.Scanner;
 
-/**
- * Helper methods for doing console-based user interaction
- */
 public class Console {
 
+    // Regular informational messages
+    public void printInfo(String message) {
+        System.out.println(colorize(message, GREEN()));
+    }
+
+    // Error messages
+    public void printError(String message) {
+        System.out.println(colorize(message, RED(), BOLD()));
+    }
+
+    // Usage example for game progress or outcomes
+    public void startGame() {
+        printInfo("Game started.");
+        // ...
+        printError("Invalid move! Try again.");
+    }
+
+    // You can keep your regular prompt methods unchanged
     public static void println(String message) {
         System.out.println(message);
     }
+}
 
-    /**
-     * Prompt the user for input using the given promptMessage
-     * @param promptMessage The message to prompt the user with
-     * @return The user's response
-     */
+
     public static String prompt(String promptMessage) {
         System.out.print(promptMessage);
         var scanner = new Scanner(System.in);
@@ -46,18 +59,21 @@ public class Console {
         final String helpMessage = "Input must be in the format 'row column', e.g., '1 2' or 't m' for the top middle cell.";
 
         while ( true ) {
-            System.out.print(prompt);
+            System.out.println(colorize("Regular informational message", GREEN()));
+            System.out.println(colorize("Error message", RED(), BOLD()));
             var input = scanner.nextLine().trim();
 
             if ( input.length() != 3 ) {
-                System.out.println(helpMessage);
+                System.out.println(colorize("Regular informational message", GREEN()));
+                System.out.println(colorize("Error message", RED(), BOLD()));
                 continue;
             }
 
             var parts = input.split(" ");
 
             if ( parts.length != 2 ) {
-                System.out.println(helpMessage);
+                System.out.println(colorize("Regular informational message", GREEN()));
+                System.out.println(colorize("Error message", RED(), BOLD()));
                 continue;
             }
 
@@ -73,7 +89,8 @@ public class Console {
 
                 return pos;
             } catch ( IllegalArgumentException e ) {
-                System.out.println(helpMessage);
+                System.out.println(colorize("Regular informational message", GREEN()));
+                System.out.println(colorize("Error message", RED(), BOLD()));
             }
         }
     }
