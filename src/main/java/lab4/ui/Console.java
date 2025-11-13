@@ -1,7 +1,10 @@
 package lab4.ui;
 
+import lab4.game.Board;
+import lab4.game.Position;
+
 import static com.diogonunes.jcolor.Ansi.colorize;
-import static com.diogonunes.jcolor.Attribute.*;rt lab4.game.*;
+import static com.diogonunes.jcolor.Attribute.*;
 
 import java.util.Scanner;
 
@@ -28,7 +31,6 @@ public class Console {
     public static void println(String message) {
         System.out.println(message);
     }
-}
 
 
     public static String prompt(String promptMessage) {
