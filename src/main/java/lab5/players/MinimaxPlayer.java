@@ -1,8 +1,8 @@
-package tictactoe.players;
+package lab5.players;
 
-import tictactoe.game.Board;
-import tictactoe.game.Position;
-import tictactoe.game.PlayerToken;
+import lab5.game.Board;
+import lab5.game.Position;
+import lab5.game.PlayerToken;
 
 public class MinimaxPlayer extends Player {
 

@@ -1,13 +1,13 @@
-package tictactoe.game;
+package lab5.game;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static tictactoe.game.PlayerToken.O;
-import static tictactoe.game.PlayerToken.X;
+import static lab5.game.PlayerToken.O;
+import static lab5.game.PlayerToken.X;
 
 /**
- * Represents a TicTacToe game board
+ * Represents a lab5 game board
  */
 public class Board {
 
@@ -22,7 +22,7 @@ public class Board {
     private final PlayerToken[][] board = new PlayerToken[3][3];
 
     /**
-     * Initialize a new, empty tictactoe board
+     * Initialize a new, empty lab5 board
      */
     public Board() {
         for (int i = 0; i < 3; i++) {
