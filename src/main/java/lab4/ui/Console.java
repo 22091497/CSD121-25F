@@ -1,7 +1,9 @@
 package lab4.ui;
 
 import lab4.game.Board;
+import lab4.game.Col;
 import lab4.game.Position;
+import lab4.game.Row;
 
 import static com.diogonunes.jcolor.Ansi.colorize;
 import static com.diogonunes.jcolor.Attribute.*;
@@ -12,12 +14,12 @@ public class Console {
 
     // Regular informational messages
     public void printInfo(String message) {
-        System.out.println(colorize(message, GREEN()));
+        System.out.println(colorize(message, GREEN_TEXT()));
     }
 
     // Error messages
     public void printError(String message) {
-        System.out.println(colorize(message, RED(), BOLD()));
+        System.out.println(colorize(message, RED_TEXT(), BOLD()));
     }
 
     // Usage example for game progress or outcomes
@@ -61,21 +63,21 @@ public class Console {
         final String helpMessage = "Input must be in the format 'row column', e.g., '1 2' or 't m' for the top middle cell.";
 
         while ( true ) {
-            System.out.println(colorize("Regular informational message", GREEN()));
-            System.out.println(colorize("Error message", RED(), BOLD()));
+            System.out.println(colorize("Regular informational message", GREEN_TEXT()));
+            System.out.println(colorize("Error message", RED_TEXT(), BOLD()));
             var input = scanner.nextLine().trim();
 
             if ( input.length() != 3 ) {
-                System.out.println(colorize("Regular informational message", GREEN()));
-                System.out.println(colorize("Error message", RED(), BOLD()));
+                System.out.println(colorize("Regular informational message", GREEN_TEXT()));
+                System.out.println(colorize("Error message", RED_TEXT(), BOLD()));
                 continue;
             }
 
             var parts = input.split(" ");
 
             if ( parts.length != 2 ) {
-                System.out.println(colorize("Regular informational message", GREEN()));
-                System.out.println(colorize("Error message", RED(), BOLD()));
+                System.out.println(colorize("Regular informational message", GREEN_TEXT()));
+                System.out.println(colorize("Error message", RED_TEXT(), BOLD()));
                 continue;
             }
 
@@ -91,8 +93,8 @@ public class Console {
 
                 return pos;
             } catch ( IllegalArgumentException e ) {
-                System.out.println(colorize("Regular informational message", GREEN()));
-                System.out.println(colorize("Error message", RED(), BOLD()));
+                System.out.println(colorize("Regular informational message", GREEN_TEXT()));
+                System.out.println(colorize("Error message", RED_TEXT(), BOLD()));
             }
         }
     }
